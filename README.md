@@ -13,7 +13,7 @@ Negative images will be randomly sampled 10 times in order to make full use of H
 Positive images will be only sampled once to learn the features of human figures  
 
     Aim 1:
-        Achieve high accuracy in testing set
+        Achieve high accuracy in testing set (achieved with 96.5% accuracy)
 
     Aim 2:
         Create zoom in/zoom out algorithm along with crop to analyze images at any resolution.  
@@ -31,10 +31,3 @@ Positive images will be only sampled once to learn the features of human figures
             Output image with highest rating/with rating above threshold.  
             With each resolution layer, memorize and group true images (above rating *)  
             Output hightst resolution subimage group combined (through edge vertices) 
-    
-    
-
-## Plan  
-17/4/2019: Readin images, select window  
-18/4/2019: Setup model  
-...
