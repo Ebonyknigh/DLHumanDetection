@@ -19,3 +19,6 @@ If human is detected in the detector, the detected region will be boxed in origi
 
 ### Note
 Due to the limitation of training dataset, which uses low res low noise images, and no vertical linear features are enphysized in negative examples, models trained on the dataset are effective at detecting people, but when dealing with pictures with strong vertical linear features, detector will tend to classify these features as people. I.e. grass in App/13.jpg, pole in App/18.jpg, and door frame in App/19.jpg
+
+### Version Notice
+This Version contains newly added Input Feature Scaling. New Model and Parameters need to be trained and saved in order to use detector. To use old parameters of the software, remove **/255** under comment Input Feature Scaling line in detector file and use  Weight4 in weights folder. Or simply use previous verson without **Version Notice** in README.md. 
