@@ -20,7 +20,7 @@ The goal of this project is to demonstrate basic understandings of Deep Learning
 \section{Introduction}
 Along with the massive advancement of computer power and the development of software infrastructures such as TensorFlow and Keras in recent years, computer vision has become a buzzword and a popular sub-trend of artificial intelligence. Nowadays, advanced computer vision applications are able to classify different objects over different categories with high accuracy; some are even able to do classification in real time with high reliability that make self-driving and unmanned vehicles commercially applicable. 
 
-This project focuses on the methods of building a basic human detection application with limited resources and computing power. More specifically, a window of fix-sized will be trained to do linear regression by studying sample data with and without upright human(s) in the picture. Then the window will be shifted horizontally and vertically and summarize the result. If a human is detected, a red box will be placed on the area where the regression shows positive outcome. 
+The goal of this project is to build a basic upright human figure detection application with limited resources and computing power. More specifically, a window of fix-sized will be trained to do linear regression by studying sample data with and without upright human(s) in the picture. Then the window will be shifted horizontally and vertically and summarize the result. If a human is detected, a red box will be placed on the area where the regression shows positive outcome. 
 
 Because the fix-sized window will be shifted all across the image, usually more than a dozen detections will be run for a single photograph. So for an image with no humans, any wrong regression result (a positive signal) will generate a false detection, thus a model averaging of size 3 is employed in the project in order to increase accuracy for images with no humans. 
 
@@ -41,7 +41,7 @@ Dropout technique is implemented with dropout rate and computation of dropout ma
 \subsubsection*{Exponentially Weighted Moving Average$^2$}
 EWMA is a technique to compute the average of a variable over its past values with much less memory requirement than traditional methods. It is widely employed in Stochastic Gradient Descent in order to expedite the convergence.
 \subsubsection*{Adaptive Learning Rate$^2$}
-Some parameters are sensitive to changes while others aren't. Adaptive Learning Rate is employed so that learning rate is scaled inversely with respect to the square root of EWMA of historical squared values. It helps achieve greater progress in the more gently sloped directions and reduces the noise at the end of the learning.
+Some parameters are sensitive to changes while others are not. Adaptive Learning Rate is employed so that learning rate is scaled inversely with respect to the square root of EWMA of historical squared values. It helps achieve greater progress in the more gently sloped directions and reduces the noise at the end of the learning.
 \subsubsection*{Adam Algorithm}
 Adam Algorithm is a state-of-the-art backward propagation algorithm that uses exponentially weighted moving average for both adaptive learning rate and momentum with bias correction for EWMA.
 \section{Design Choices for Human Detection}
@@ -102,7 +102,7 @@ The application can usually correctly identify human figures if they exist in im
 
 However, there are a few measurements to be done in order to improve the performance of the detector. After some tweaking to minibatch size to each model, very interesting results can be found. The discussed detector (loose detector) uses a batch size of 512 samples. If the batch size is decreased, models can achieve much higher testing accuracy using the same testing set, around 98\%. However, the models will detect humans with stricter terms. For example, much fewer segments are classified as human. Even though some of the false human detection can be avoided, some human figures will not be detected as well. In the detector created with minibatch size of 64 (strict detector), the incorrect detection of the monument as a human mentioned in previous section can be avoided; however, no human on the beach is detected either.
 
-Some other measurements can be applied to the project to improve accuracy as well. No data augmentation methods are applied in this project so far. Some common methods such as adding tiny amounts of white noise to all data sets, shifting hue, and affine distortion could more or less make improvement upon the results. In addition, the dataset doesn't contains many non-human vertical features, such as trees, doors or buildings. In order to counter the tendency of classifying vertical objects as humans, adding more non-human vertical features can invariably help the generalization.
+Some other measurements can be applied to the project to improve accuracy as well. No data augmentation methods are applied in this project so far. Some common methods such as adding tiny amounts of white noise to all data sets, shifting hue, and affine distortion could more or less make improvement upon the results. In addition, the dataset does not contains many non-human vertical features, such as trees, doors or buildings. In order to counter the tendency of classifying vertical objects as humans, adding more non-human vertical features can invariably help the generalization.
 
 \section{Reference}
 1. Asaithambi, Sudharsan. “Why, How and When to Scale Your Features.” Medium, GreyAtom, 4 Dec. 2017, medium.com/greyatom/why-how-and-when-to-scale-your-features-4b30ab09db5e.\\
@@ -113,5 +113,5 @@ Some other measurements can be applied to the project to improve accuracy as wel
 
 4. Hassan, Muneeb. “VGG16 - Convolutional Network for Classification and Detection.” VGG16 - Convolutional Network for Classification and Detection, 21 Nov. 2018, neurohive.io/en/popular-networks/vgg16/.
 \section{Link to Project}
-The dataset, all source code and pre-trained models can be found \href{https://github.com/Ebonyknigh/DLHumanDetection}{HERE}.
+The dataset, all source code and pre-trained models can be found \href{https://github.com/Lingfeng158/DLHumanDetection}{HERE}.
 \end{document}
